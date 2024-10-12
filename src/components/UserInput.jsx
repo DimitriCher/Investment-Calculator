@@ -1,19 +1,4 @@
-import { useState } from 'react';
-
-export default function UserInput() {
-  const [UserInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  function handleChange(inputIndentifier, newValue) {
-    setUserInput((prevUserInput) => {
-      return { ...prevUserInput, [inputIndentifier]: newValue };
-    });
-  }
-
+export default function UserInput({ onChange, userInput }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -23,8 +8,8 @@ export default function UserInput() {
             id="user-input input"
             type="number"
             required
-            value={UserInput.initialInvestment}
-            onChange={(e) => handleChange('initialInvestment', e.target.value)}
+            value={userInput.initialInvestment}
+            onChange={(e) => onChange('initialInvestment', e.target.value)}
           ></input>
         </p>
         <p>
@@ -33,8 +18,8 @@ export default function UserInput() {
             id="user-input input"
             type="number"
             required
-            value={UserInput.annualInvestment}
-            onChange={(e) => handleChange('annualInvestment', e.target.value)}
+            value={userInput.annualInvestment}
+            onChange={(e) => onChange('annualInvestment', e.target.value)}
           ></input>
         </p>
       </div>
@@ -45,8 +30,8 @@ export default function UserInput() {
             id="user-input input"
             type="number"
             required
-            value={UserInput.expectedReturn}
-            onChange={(e) => handleChange('expectedReturn', e.target.value)}
+            value={userInput.expectedReturn}
+            onChange={(e) => onChange('expectedReturn', e.target.value)}
           ></input>
         </p>
         <p>
@@ -55,8 +40,8 @@ export default function UserInput() {
             id="user-input input"
             type="number"
             required
-            value={UserInput.duration}
-            onChange={(e) => handleChange('duration', e.target.value)}
+            value={userInput.duration}
+            onChange={(e) => onChange('duration', e.target.value)}
           ></input>
         </p>
       </div>
